@@ -71,7 +71,7 @@ public class Admin {
                                                     ArrayList<Car> listOfCars=  customer.getCarList();
                                                     Car car=null;
                                                    
-                                                   System.out.println("Enter CarType( press Toyota: 1, Maruti: 2,hyundai: 3 )");
+                                                   System.out.println("Enter CarType( press 1: Maruti 2: hyundai: 3: Toyota)");
                                                    int carType=obj1.nextInt();
                                                          switch (carType) 
                                                     {
