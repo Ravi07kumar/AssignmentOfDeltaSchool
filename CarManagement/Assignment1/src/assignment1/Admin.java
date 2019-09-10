@@ -30,8 +30,8 @@ public class Admin {
        // ArrayList<Car> list1 = new ArrayList<Car>();
        
         
-        int[] randam;
-
+        int[] random1;
+        Utils utils = new Utils();
         Scanner obj = new Scanner(System.in);
 
         do {
@@ -53,7 +53,8 @@ public class Admin {
                                  int carId;
                                  String carModel;
                                  double carPrice;
-                                 
+                                 try
+                                 {
                                  
                                  Scanner obj1=new Scanner(System.in);
                                  Scanner obj2=new Scanner(System.in);
@@ -112,7 +113,7 @@ public class Admin {
                                         }
                                 }
                                  
-                                 
+                                 }catch(Exception e){System.out.println("Enter coorect Input");}
                                if(counter==0)
                                      {
                                        System.out.println("Id is Not Exist Need To Add New Customer."); }
@@ -124,6 +125,7 @@ public class Admin {
                                 // show the all Customer sorted by name
                               
                                 Collections.sort(list);
+                               
                                 for (int i = 0; i < list.size(); i++) 
                                 {
                                     System.out.println("Customer Id : " + list.get(i).getId() + " Name : "
@@ -132,16 +134,17 @@ public class Admin {
                                 {
                                  System.out.println("Car Id: "+carDetail.getCarId() +" Car Model : "+carDetail.getCarModel()+" Car Price: "+carDetail.getCarPrice()+
                                          " Resales Price :"+carDetail.getResalePrice());
-                                 }
+                                 } 
                                  } break;
                          case 4:
                                  // Search the Customer By Id
                              
-                                    SearchById search = new SearchById();
+                                  
+                                   utils.SearchById();
                                     int count=0;
                                     for (int i = 0; i < list.size(); i++)
                                     {
-                                        int x1 = search.getCusId();
+                                        int x1 = utils.getCusId();
                                         if (list.get(i).getId() == x1)
                                         {   count++;
                                             System.out.println("Name of Customer: "
@@ -162,29 +165,30 @@ public class Admin {
                                   // here user Randon to distubute prize
                                     int flag=0;
                                     Random random = new Random();
-                                    RandomNumber r = new RandomNumber();
-                                    randam = new int[6];
+                                  //  RandomNumber r = new RandomNumber();
+                                    utils.randomNumber();
+                                    random1 = new int[6];
                                     for (int i = 0; i < 6; i++) 
                                     {
                                         int index = random.nextInt(list.size());
-                                         randam[i] = list.get(index).getId();
+                                         random1[i] = list.get(index).getId();
                                      }
                                    for (int i = 0; i < 6; i++) 
                                     { 
                                       
-                                        if (randam[i] == r.num1) {
+                                        if ( random1[i] == utils.num1) {
                                               flag++;
-                                        System.out.println("Id : " + randam[i] + " price Winner");
+                                        System.out.println("Id : " +  random1[i] + " price Winner");
                                         break;
                                         }
-                                        else if (randam[i] == r.num2) {
+                                        else if  (random1[i] == utils.num2) {
                                               flag++;
-                                        System.out.println("Id : " + randam[i] + " price Winner");
+                                        System.out.println("Id : " +  random1[i] + " price Winner");
                                           break;
                                         }
-                                        else  if (randam[i] == r.num3) {
+                                        else  if ( random1[i] ==utils.num3) {
                                               flag++;
-                                        System.out.println("Id : " + randam[i] + " price Winner");
+                                        System.out.println("Id : " +  random1[i] + " price Winner");
                                           break;
                                         } 
                                     } if(flag==0)System.out.println("Better Luck For next time :)");
@@ -195,9 +199,6 @@ public class Admin {
     }
 
 }
-
-
-
 
 
 

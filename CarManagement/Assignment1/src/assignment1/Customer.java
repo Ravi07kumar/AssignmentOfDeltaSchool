@@ -19,11 +19,13 @@ import java.util.Scanner;
     public ArrayList<Car> carList;
 
   public  Customer() {
+     
         Scanner obj1 = new Scanner(System.in);
         Scanner obj2 = new Scanner(System.in);
+        try{
         System.out.println("Enter ID, Name");
         id = obj1.nextInt();
-        name = obj2.next();
+        name = obj2.next();}catch(Exception e){System.out.println("Enter coorect Input");}
         this.carList = new ArrayList<Car>();
     }
 
